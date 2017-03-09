@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3868e85a81eb744f9699b337fd8055d1",
+    "content-hash": "70e533cd72c35ca6fe4ea499abb7d1d5",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -101,6 +101,51 @@
                 "wysiwyg"
             ],
             "time": "2017-01-12T17:36:48+00:00"
+        },
+        {
+            "name": "eventviva/php-image-resize",
+            "version": "1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eventviva/php-image-resize.git",
+                "reference": "8c086aad961c082939ee9e42f83f536f37b73b00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eventviva/php-image-resize/zipball/8c086aad961c082939ee9e42f83f536f37b73b00",
+                "reference": "8c086aad961c082939ee9e42f83f536f37b73b00",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aditya Patadia",
+                    "homepage": "http://aditya.patadia.org/"
+                }
+            ],
+            "description": "PHP class to re-size and scale images",
+            "homepage": "https://github.com/eventviva/php-image-resize",
+            "keywords": [
+                "image",
+                "php",
+                "resize",
+                "scale"
+            ],
+            "time": "2017-01-19T10:34:05+00:00"
         },
         {
             "name": "ircmaxell/password-compat",

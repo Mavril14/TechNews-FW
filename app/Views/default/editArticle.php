@@ -5,8 +5,10 @@
     $this->start('contenu');
 ?>
     <!-- Make sure the path to CKEditor is correct. -->
-    <div>
-        <form method="post" action="<?=$this->url("default_addArticle")?>">
+    <div class="row">
+        <!--colleft-->
+        <div class="col-md-8 col-sm-12">
+        <form method="post" action="<?=$this->url("default_addArticle")?>" enctype="multipart/form-data">
             <label>Titre Article</label>
             <br>
             <input name="title" type="text" />
@@ -37,7 +39,8 @@
             <br>
             <input type="hidden" name="auteur" value="2" />
             <br>
-            <input type="file" name="image" /> <span>Uploader Photo</span>
+            <span>Uploader Photo</span>
+            <input type="file" name="image" />
             <br>
             <textarea name="message" rows="25" cols="80" id="ckeditor"></textarea>
             <script>
@@ -48,6 +51,6 @@
             <button type="submit"> Envoyer </button>
 
         </form>
+      </div>
 
-    </div>
     <?php $this->stop('contenu'); ?>

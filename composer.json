@@ -32,7 +32,8 @@
         "league/url": "^3.3",
         "phpmailer/phpmailer": "^5.2",
         "j4mie/idiorm": "^1.5",
-        "ckeditor/ckeditor": "^4.6"
+        "ckeditor/ckeditor": "^4.6",
+        "eventviva/php-image-resize": "^1.6"
     },
     "autoload": {
         "psr-4": {
