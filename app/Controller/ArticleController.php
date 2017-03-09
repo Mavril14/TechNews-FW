@@ -5,6 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use Model\Db\DBFactory;
 use Model\Shortcut;
+use Controller\DefaultController;
+use ORM;
 /**
  *
  */
@@ -33,16 +35,15 @@ class ArticleController extends Controller
     $article->SPECIALARTICLE = $SPECIALARTICLE;
 
     $article->save();
-    $article->IDARTICLE;
+    $IDARTICLE = $article->IDARTICLE;
     $slug = Shortcut::generateSlug($article->TITREARTICLE);
-
-    $this->redirectToRoute("default/article",["id" => $IDARTICLE, "slug" => $slug]);
+    $this->redirectToRoute("default_article",["id" => $IDARTICLE, "slug" => $slug]);
     # code...
   }
   public function editArticle()
   {
     DBFactory::start();
-    $categories = ORM::for_table("view_articles")->distinct()->select('LIBELLECATEGORIE')->find_many();
+    $categories = ORM::for_table("categorie")->find_many();
     $this->show('default/editArticle', ['categorie' => "Business", 'categories4form'=> $categories]);
   }
 }

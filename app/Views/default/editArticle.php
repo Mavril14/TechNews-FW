@@ -1,43 +1,53 @@
 <?php
+
+    $this->layout('layout', ['title' => 'TechNews | '.ucfirst($categorie), 'current' => ""]);
+    use Model\Shortcut;
     $this->start('contenu');
 ?>
     <!-- Make sure the path to CKEditor is correct. -->
-    <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <div>
-        <form method="post">
+        <form method="post" action="<?=$this->url("default_addArticle")?>">
             <label>Titre Article</label>
             <br>
-            <input name="TITREARTICLE" type="text" />
+            <input name="title" type="text" />
             <br>
             <label>Categorie</label>
             <br>
-            <select>
+            <?php //debug($categories4form)?>
+            <select name="categorie">
                 <?php foreach($categories4form as $categorie) : ?>
-                    <option value="<?= $categorie['LIBELLECATEGORIE'] ?>">
-                        <?= $categorie['LIBELLECATEGORIE'] ?>
+
+                    <option value="<?= $categorie->IDCATEGORIE ?>">
+                        <?= $categorie->LIBELLECATEGORIE ?>
                     </option>
                     <?php endforeach; ?>
             </select>
             <br>
             <label>Article spéciale ?</label>
             <br>
-            <input type="radio" name="SPECIALARTICLE" value="1" checked> Oui
+            <input type="radio" name="special" value="1" checked> Oui
             <br>
-            <input type="radio" name="SPECIALARTICLE" value="0"> Non
+            <input type="radio" name="special" value="0"> Non
             <br>
             <label>Article en spotlight ?</label>
             <br>
-            <input type="radio" name="SPOTLIGHTARTICLE" value="1" checked> Oui
+            <input type="radio" name="spotlight" value="1" checked> Oui
             <br>
-            <input type="radio" name="SPOTLIGHTARTICLE" value="0"> Non
+            <input type="radio" name="spotlight" value="0"> Non
             <br>
-            <label>Votre nom :</label>
+            <input type="hidden" name="auteur" value="2" />
             <br>
-            <input type="hidden" name="IDAUTEUR" value="2" />
+            <input type="file" name="image" /> <span>Uploader Photo</span>
             <br>
-            <input type="file" name="FEATUREDIMAGEARTICLE" /> <span>Uploader Photo</span>
-            <br>
+            <textarea name="message" rows="25" cols="80" id="ckeditor"></textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'ckeditor' );
+            </script>
             <button type="submit"> Envoyer </button>
+
         </form>
+
     </div>
     <?php $this->stop('contenu'); ?>
