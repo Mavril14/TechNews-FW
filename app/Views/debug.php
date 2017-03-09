@@ -8,6 +8,8 @@
 <body>
 	<pre>
 		<?= $this->section('debug') ?>
+		
+		
 	</pre>
 </body>
 </html>
