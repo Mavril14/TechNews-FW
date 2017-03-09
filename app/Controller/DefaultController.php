@@ -9,38 +9,38 @@ class DefaultController extends Controller
 {
 
 	/**
-	 * Page d'accueil par défaut
+	 * Page d'accueil par dï¿½faut
 	 */
 	public function home() {
-	    
+
 	    # Connexion a la BDD
 	    DBFactory::start();
-	    
-	    # Récupération des Articles en SPOTLIGHT
+
+	    # Rï¿½cupï¿½ration des Articles en SPOTLIGHT
 	    $spotlights = \ORM::for_table('view_articles')->where('SPOTLIGHTARTICLE', 1)->find_result_set();
-	    
-	    # Récupérations des Articles de la Page d'Accueil
+
+	    # Rï¿½cupï¿½rations des Articles de la Page d'Accueil
 	    $articles = \ORM::for_table('view_articles')->find_result_set();
-	    
-	    # Transmettre à la Vue
+
+	    # Transmettre ï¿½ la Vue
 	    $this->show('default/home', ['spotlights' => $spotlights, 'articles' => $articles]);
 	}
-	
+
 	/**
-	 * Permet d'afficher les articles d'une catégorie
+	 * Permet d'afficher les articles d'une catï¿½gorie
 	 * @param STRING $categorie
 	 */
 	public function categorie($categorie) {
 	    # Connexion a la BDD
 	    DBFactory::start();
-	    
-	    # Récupérations des Articles de la Catégorie
+
+	    # Rï¿½cupï¿½rations des Articles de la Catï¿½gorie
 	    $articles  = \ORM::for_table('view_articles')->where('LIBELLECATEGORIE', ucfirst($categorie))->find_result_set();
 	    $nbarticles = $articles->count();
-	
-	    # Transmettre à la Vue
+
+	    # Transmettre ï¿½ la Vue
 	    $this->show('default/categorie', ['articles' => $articles, 'categorie' => $categorie, 'nbarticles' => $nbarticles]);
-	    
+
 	}
 
 	/**
@@ -49,31 +49,19 @@ class DefaultController extends Controller
 	 * @param String $slug SLUGARTICLE
 	 */
 	public function article($id, $slug) {
-	    
+
 	    # Connexion a la BDD
 	    DBFactory::start();
-	    
-	    # Récupération des Données de l'Article
+
+	    # Rï¿½cupï¿½ration des Donnï¿½es de l'Article
 	    $article = \ORM::for_table('view_articles')->find_one($id);
-	    
+
 	    # Suggestions
 	    $suggestions = \ORM::for_table('view_articles')->where('IDCATEGORIE', $article->IDCATEGORIE)->where_not_equal('IDARTICLE', $id)->limit(3)->order_by_desc('IDARTICLE')->find_result_set();
-	    
-	    # Transmettre à la Vue
+
+	    # Transmettre ï¿½ la Vue
 	    $this->show('default/article', ['article' => $article, 'suggestions' => $suggestions, 'categorie' => $article->LIBELLECATEGORIE]);
-	    
+
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
