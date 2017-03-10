@@ -11,6 +11,10 @@
 	    # Route pour Afficher un Article
 		['GET', '/article/[i:id]-[:slug].html', 'Default#article', 'default_article'],
 		['GET', '/article/edit', 'Article#editArticle', 'default_editArticle'],
-		['POST', '/article/add', 'Article#addArticle', 'default_addArticle']
+		['POST', '/article/add', 'Article#addArticle', 'default_addArticle'],
+		['POST', '/newsletter/add', 'Newsletter#addToNewsletter', 'default_addToNewsletter'],
+		['POST', '/admin/connexion', 'Admin#connexion', 'admin_connexion']
+
+
 
 	);

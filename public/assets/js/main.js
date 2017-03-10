@@ -71,3 +71,25 @@
         }
     });
 })(jQuery);
+
+
+$('#addToNewsletter').click(function(event) {
+  event.preventDefault();
+//  console.log("Click");
+			// EN MODE POST
+			$.ajax({
+        //cache: false,
+        //<? // $this->url('default_addToNewsletter'); ?>
+				url : '/forktechnws/public/newsletter/add',
+				type : 'POST',
+        data: {email : $("#email").val()},
+				success : function(response, status) {
+
+          $("#subscription").html(response.msg);
+
+				},
+				error : function(response, status, error) {
+					console.log(error);
+				}
+			});
+		});

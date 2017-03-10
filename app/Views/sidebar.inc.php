@@ -1,4 +1,4 @@
-<?php 
+<?php
     use Model\Shortcut; ?>
 <!--colright-->
 <div class="col-md-4 col-sm-12">
@@ -38,9 +38,10 @@
 	<!-- subcribe box-->
 	<div class="subcribe-box">
 		<h3>NEWSLETTER</h3>
-		<p>Inscrivez-vous pour recevoir nos dernières publications.</p>
-		<input type="text" placeholder="Votre Email..." />
-		<button class="my-btn">Je m'inscris</button>
+		<p id="subscription">Inscrivez-vous pour recevoir nos dernières publications.</p>
+      <input type="email" id="email" placeholder="Votre Email..." />
+      <button class="my-btn" id="addToNewsletter">Je m'inscris</button>
+
 	</div>
 	<!-- connect us-->
 	<div class="connect-us">
@@ -111,10 +112,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-

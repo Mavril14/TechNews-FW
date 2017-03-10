@@ -3,7 +3,6 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\View\Plates;
 use Model\Db\DBFactory;
 use Model\Shortcut;
 use Controller\DefaultController;
