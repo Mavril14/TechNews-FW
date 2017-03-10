@@ -1,24 +1,24 @@
-<?php 
+<?php
     use Model\News\CategorieModel;
     use Model\Db\DBFactory;
-    
+
     $CM = new CategorieModel;
     $categories = $CM->findCategories();
-    
+
     // --
-    
+
     # Initialisation de la Connexion
     DBFactory::start();
-    
-    # Récupération des tags
+
+    # Rï¿½cupï¿½ration des tags
     $tags = ORM::for_table('tags')->find_result_set();
-    
-    # Récupération des 5 derniers articles
+
+    # Rï¿½cupï¿½ration des 5 derniers articles
     $lastFiveArticles = ORM::for_table('view_articles')->limit(5)->order_by_desc('DATECREATIONARTICLE')->find_result_set();
-    
-    # Récupération des Articles en Avant
+
+    # Rï¿½cupï¿½ration des Articles en Avant
     $specialArticles = ORM::for_table('view_articles')->where('SPECIALARTICLE', 1)->find_result_set();
-    
+
     ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,6 +45,7 @@
     <link href="<?= $this->assetUrl('css/owl.carousel.min.css'); ?>" rel="stylesheet" />
     <!-- Main CSS (SCSS Compile) -->
     <link href="<?= $this->assetUrl('css/main.css'); ?>" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <?= $this->section('css') ?>
     <!-- JavaScripts -->
     <!--<script src="<?= $this->assetUrl('js/modernizr.js'); ?>"></script>-->
@@ -109,10 +110,10 @@
 
             <!-- CONTENU DU SITE -->
             <?= $this->section('contenu') ?>
-			
+
 			<!-- LAYOUT AVEC LA SIDEBAR -->
             <?php include_once 'sidebar.inc.php'; ?>
-               
+
         </div></div>
         <!--footer-->
         <footer class="footer">
@@ -198,12 +199,3 @@
     <?= $this->section('script') ?>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
